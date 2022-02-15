@@ -1,0 +1,60 @@
+body{
+    background: #807f7f;
+}
+
+
+.inputs{
+    padding-bottom: 10px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    /* display: flex;
+    justify-content: center; */
+    max-width: 1500px;
+    margin: auto;
+    text-align: center;
+}
+
+.userbtn {
+    width: 175px;
+}
+
+.editbtn {
+    padding-right: 5px;
+    display: inline-block;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1500px !important;
+} 
+
+.edit-customer-inputs {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    max-width: 300px;
+}
+
+.deletingbtns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alertBanner{
+    max-width: 350px;
+    text-align: center;
+    margin: auto;
+}

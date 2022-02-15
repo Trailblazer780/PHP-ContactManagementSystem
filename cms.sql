@@ -1,0 +1,72 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+DROP TABLE IF EXISTS `tblUsers`;
+DROP TABLE IF EXISTS `tblUser01`;
+DROP TABLE IF EXISTS `tblUser02`;
+DROP TABLE IF EXISTS `tblUser03`;
+DROP TABLE IF EXISTS `tblCustomers`;
+
+CREATE TABLE IF NOT EXISTS `tblUsers` (
+  `username` varchar(45) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  Primary Key (`username`)
+);
+
+CREATE TABLE IF NOT EXISTS `tblCustomers` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `firstName` varchar(25) NOT NULL,
+    `lastName` varchar(25) NOT NULL,
+    `phone` varchar(20) NOT NULL,
+    `email` varchar(50) NOT NULL,
+    `address` varchar(100) NOT NULL,
+    `city` varchar(50) NOT NULL,
+    `province` varchar(2) NOT NULL,
+    `postalCode` varchar(6) NOT NULL,
+    `dob` date NOT NULL,
+    `salesmen` varchar(25) NOT NULL,
+    Primary Key (`id`)
+);
+
+INSERT INTO `tblUsers` (`username`, `password`) VALUES
+('user01', '$2y$10$uKj50rZ8LXCyQBnQTJ27teU.5nB8j1ZC5ZWRZLx7H/14pyGrGHiZm'),
+('user02', '$2y$10$1tMtY8PSS36.RspaKeYRw.0Yr5y1bL5K/WsKufaKRYwzCON62zFb.'),
+('user03', '$2y$10$lwTqWXhlHWlWeKj0sakT2.jyUyf/3AUqe0glNF/kQFMBG1Yq/XR/i'),
+('admin', '$2y$10$Fu0qzFroYLOduNw8hZtzxe5MZ1OacqxZ0w.qfihKSRMpQtSUNgaLG');
+
+INSERT INTO `tblCustomers` (`id`, `firstName`, `lastName`, `phone`, `email`, `address`, `city`, `province`, `postalCode`, `dob`, `salesmen`) VALUES
+(1, 'Ivy','Kramer','1-437-867-1282','aliquet.libero@pedemalesuadavel.org','346-4462 Suspendisse Ave','Nenana','NL','B1J8N8','1968-04-12', 'user01'),
+(2, 'Fitzgerald','Shepard','1-206-777-0595','magnis.dis.parturient@Cras.ca','P.O. Box 380 5309 Amet Avenue','Kennewick','ON','S5H2I6','1961-03-21', 'user01'),
+(3, 'Amaya','Jackson','1-762-542-0380','Fusce@utaliquam.ca','P.O. Box 121 3581 Purus Avenue','Richland','MB','R2Q9T6','1974-09-13', 'user01'),
+(4, 'Jarrod','Huber','1-469-899-2702','consectetuer.cursus.et@Praesent.edu','P.O. Box 419 4348 Elit. Ave','Falls Church','MB','I5Z1F4','1983-05-30', 'user01'),
+(5, 'Kirestin','Mcmahon','1-244-146-8495','lacus@mollis.edu','328-5079 Felis St.','Milford','BC','R5A9X5','1969-08-05', 'user01'),
+(6, 'Julian','Ayers','1-191-550-8469','sed.consequat@rutrum.org','7403 Mollis. Av.','Kalispell','YT','Q7J5O9','1974-04-29', 'user01'),
+(7, 'Akeem','Mcfadden','1-997-457-2031','Integer.tincidunt@sit.org','271-3230 Porttitor Av.','Kalamazoo','NT','C1P6X6','1975-10-28', 'user01'),
+(8, 'Dana','Snow','1-592-165-0075','Fusce@nectempus.com','Ap #790-6746 Tellus Street','Agawam','NT','L3S4X9','1972-08-09', 'user01'),
+(9, 'Colleen','Hutchinson','1-945-606-6717','Suspendisse.sagittis.Nullam@Innec.edu','3896 Nunc Ave','Pembroke Pines','NT','V4M2J4','1974-09-11', 'user01'),
+(10, 'Hyatt','Sanchez','1-483-989-6613','libero@nislMaecenasmalesuada.edu','P.O. Box 922 7698 Sed St.','Las Cruces','AB','M1N8M9','1972-01-06', 'user01'),
+(11,'Madison','Stevenson','1-898-794-3086','Donec.consectetuer.mauris@morbi.edu','P.O. Box 872 6306 Donec St.','Brigham City','NT','L5K9L0','1966-06-14', 'user01'),
+(12, 'Roanna','Downs','1-969-912-9999','ac.sem@duinectempus.edu','7691 Rhoncus Av.','Warwick','NB','S2X6Q9','1967-10-30', 'user01'),
+(13, 'Isaiah','Stevens','1-918-821-7207','fringilla.porttitor.vulputate@malesuadaIntegerid.ca','6132 Erat Road','Gatlinburg','BC','U5T4D6','1956-08-25', 'user02'),
+(14, 'Sonia','Ayers','1-598-429-1498','lectus@acmi.ca','Ap #990-5463 Maecenas St.','Rosemead','NL','W2Z1U8','1971-10-31', 'user02'),
+(15, 'Alexis','Gilmore','1-886-188-5867','mauris.sit.amet@penatibuset.org','Ap #412-1054 Nonummy Street','Temecula','PE','W6S6L7','1977-10-25', 'user02'),
+(16, 'Zoe','England','1-663-558-3161','auctor.Mauris@nonlobortisquis.edu','279-4028 Erat. Rd.','Beverly','QC','M8P9P6','1976-12-03', 'user02'),
+(17, 'Charde','Dunn','1-357-831-9923','urna@sem.edu','304-5920 Tellus Rd.','Chesapeake','NL','F2N8T7','1976-04-16', 'user02'),
+(18, 'Avye','Barron','1-388-698-5126','Nullam@ligulaAeneangravida.com','Ap #915-7949 Donec Rd.','West Allis','NT','P9Z4R0','1974-05-07', 'user02'),
+(19, 'Hamish','Taylor','1-924-809-0362','auctor.odio.a@duinec.ca','Ap #125-7692 Duis Av.','Caguas','NT','K9B1Z4','1982-10-05', 'user02'),
+(20, 'Wesley','Todd','1-647-738-0019','arcu.Vestibulum@nostra.ca','7226 Diam Avenue','Bellflower','NT','V6V8O2','1980-05-31', 'user02'),
+(21, 'Samson','Huber','1-922-760-7616','tincidunt@laoreetlectusquis.ca','4685 Vitae Road','Kennesaw','NB','D7B1F3','1966-12-12', 'user02'),
+(22, 'Samson','Ochoa','1-309-979-6313','risus.Donec@arcu.ca','3081 Iaculis Road','San Clemente','MB','H1C3I4','1967-05-28', 'user02'),
+(23, 'Blair','Yang','1-619-688-2205','Mauris.quis.turpis@metusfacilisis.edu','7557 Eu St.','Thousand Oaks','BC','L3Z7O4','1982-11-30', 'user02'),
+(24, 'Roary','Martin','1-194-683-8143','et.ipsum.cursus@Morbiquisurna.org','Ap #261-7127 Lectus Av.','Sioux Falls','NL','P6Z2A7','1960-07-18', 'user02'),
+(25, 'Owen','Boyer','1-727-655-7997','lacus.varius@urnasuscipit.com','967-7532 Molestie. Avenue','Somerville','NU','F9Q3T3','1982-11-08', 'user03'),
+(26, 'Forrest','Landry','1-601-259-0565','Aliquam.nec@Vestibulumanteipsum.com','529-760 Primis Street','Turlock','NS','M2J3M6','1966-06-07', 'user03'),
+(27, 'Palmer','Barrera','1-781-382-8482','Donec.consectetuer@nuncullamcorpereu.com','2655 Augue Street','Cleveland','NL','U9Q1J3','1970-04-25', 'user03'),
+(28, 'Piper','Higgins','1-165-448-1964','ut.pellentesque@Nullamenim.org','866-9924 Magna. Av.','Rye','ON','N9P9G3','1971-06-03', 'user03'),
+(29, 'Ferris','Ferrell','1-986-568-4320','fringilla.ornare@Phasellusat.com','P.O. Box 453 3973 Nulla Rd.','Racine','ON','P5D8W4','1957-02-11', 'user03'),
+(30, 'Bryar','Steele','1-473-168-3889','ut.nulla@mollis.ca','P.O. Box 216 6350 In Avenue','Valparaiso','BC','Q1J5M5','1972-10-29', 'user03'),
+(31, 'Haley','Small','1-379-952-7322','semper.et.lacinia@velit.edu','P.O. Box 653 8648 Dolor. Avenue','Fontana','NS','N7L1H8','1971-10-05', 'user03'),
+(32, 'Sonia','Marquez','1-574-102-4243','ante.Nunc@pharetra.org','P.O. Box 832 2365 Pede. Avenue','Paducah','MB','Z6F3K0','1964-07-10', 'user03'),
+(33, 'Robert','Tyson','1-829-944-2978','auctor.nunc@Sedeu.org','Ap #738-9722 Lobortis Street','Port St. Lucie','SK','L4Y8L7','1964-11-04', 'user03'),
+(34, 'Pascale','Flowers','1-172-514-4820','sodales.elit@rhoncus.com','3950 In Av.','Mission Viejo','SK','H9E2J9','1978-01-06', 'user03'),
+(35, 'Sophia','Nixon','1-958-472-8658','sed@ametnullaDonec.org','Ap #810-427 Tincidunt Rd.','Jersey City','NL','H5W6K7','1960-05-11', 'user03'),
+(36, 'Ferris','Gonzalez','1-317-146-6049','tortor.nibh@posuerevulputate.ca','Ap #124-9508 Posuere Rd.','Alhambra','NL','U5Y2G2','1983-01-12', 'user03');
