@@ -1,3 +1,4 @@
+<!-- Start session and bring in header, redirect if not authenticated -->
 <?php session_start(); include 'header.php'; if($_SESSION['loggedin'] != 'true'){header("Location: index.php");}?>
 
 <?php 
@@ -45,27 +46,19 @@
                 $salesmen = $salesmen;
                 $stmt->execute();
             }
-
+            //
             header("Location: admin.php?message=success");
         }
 
     }
-
-    // set variable to file in uploads folder
-
-    // target file in uploads directory
+    // set target file
     $target_file = "uploads/backup.csv";
-    // // open the target file
-    // $handle = fopen($target_file, "r");
-
-
-    // // $file = $_FILES['filebackup']['tmp_name'];
-    // var_dump($handle);
-    // var_dump($target_file);
+    // instantiate the class
     $restore = new Restore();
+    // call the function
     $restore->restoreDatabase($target_file);
 
 ?>
 
-
+<!-- Bring in the footer -->
 <?php include 'footer.php';?>

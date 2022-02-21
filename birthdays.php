@@ -1,9 +1,11 @@
+<!-- Start session and bring in header, redirect if not authenticated -->
 <?php session_start(); include 'header.php'; if($_SESSION['loggedin'] != 'true'){header("Location: index.php");}?>
-
+<!-- Logout button -->
     <h1 class="text text-dark"><?php include 'logoutButton.php'; ?>Select a month to view customers born in that month:</h1>
     <div class="inputs">
         <a href="userpanel.php"><input class="btn btn-dark" type="submit" name="submit" value="Back"></a>
     </div>
+    <!-- Display 12 buttons one for each month -->
     <form method="POST" action="view_birthdays.php">
         <div class="inputs">
             <input type="hidden" name="month" value="January"> 

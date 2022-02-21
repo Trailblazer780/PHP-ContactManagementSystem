@@ -17,9 +17,10 @@
             // $stmt->bind_param("s", $salesmen);
             // $salesmen = $user;
             $stmt->execute();
-    
+            
+            // set the resule
             $result = $stmt->get_result();
-
+            // loop through result
             while($row = $result->fetch_assoc()){
                 $title1 = $row['id']; 
                 $title2 = $row['firstName']; 
@@ -32,7 +33,7 @@
                 $title9 = $row['postalCode'];
                 $title10 = $row['dob'];
                 $title11 = $row['salesmen'];
-    
+                // display table row for each customer
                 echo "<tr> 
                 <td>$title1</td>
                 <td>$title2</td>
@@ -49,8 +50,9 @@
             }
         }
     }
-
+    // instantiate the class
     $getbday = new getBirthdays;
+    // call the function
     $getbday->getCusBirthdays();
 
 ?>

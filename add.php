@@ -1,7 +1,9 @@
+<!-- Start session and bring in header, redirect if not authenticated -->
 <?php session_start(); include 'header.php'; if($_SESSION['loggedin'] != 'true'){header("Location: index.php");}?>
+<!-- Logout buttons -->
 <h1 class='text text-dark'><?php include 'logoutButton.php'; ?>Add Customer</h1>
 <?php
-
+    // Error messages
     $message_err = '';
     $firstName_err ='';
     $lastName_err = '';
@@ -18,7 +20,7 @@
     $dob_patttern = "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/";
 
     $verfied = 'yes';
-
+    // form block for user input
     $form_block= "
         <form action=\"$_SERVER[PHP_SELF]\" method=\"POST\">
         <input type=\"hidden\" name=\"op\" value=\"ds\">
@@ -64,7 +66,7 @@
         </form>
         <a href=\"userpanel.php\"><div class=\"btn btn-dark\">Cancel</div></a></div>";
 
-
+    // error check the input
     if (isset($_POST['op']) != 'ds') {
         echo $form_block;
     }
@@ -120,11 +122,12 @@
             echo $error_block;
             echo $form_block;
         }
+        // if all input is valid, update the database
         if($verfied == 'yes' && preg_match($dob_patttern, $_POST['dob']) == 1) {
             header("Location: addcustomer.php?username=$_SESSION[username]&firstname=$_POST[firstname]&lastname=$_POST[lastname]&email=$_POST[email]&phone=$_POST[phone]&address=$_POST[address]&city=$_POST[city]&province=$_POST[province]&postalcode=$_POST[postalcode]&dob=$_POST[dob]");
         }
     }
 
 ?>
-
+<!-- Bring in the footer -->
 <?php include 'footer.php'; ?>

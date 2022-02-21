@@ -28,4 +28,5 @@
                     <input class="btn btn-dark" type="submit" value="Login">
                 </div>
             </form>
+<!-- Bring in the footer -->
 <?php include 'footer.php'; ?>

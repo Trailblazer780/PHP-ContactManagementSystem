@@ -1,4 +1,5 @@
 <?php
+    // Header Block
     $header = "
     <!DOCTYPE html>
     <html lang=\"en\">
@@ -11,5 +12,6 @@
         </head>
         <body>
         <div class=\"container\">";
+    // display the header
     echo $header;
-?>
+

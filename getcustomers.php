@@ -1,6 +1,10 @@
+
 <?php
+    // redirect if not auth
     if($_SESSION['loggedin'] != 'true'){header("Location: index.php");}
+
     class getCustomers {
+        // get the data for the specific user
         public function getUserCusData($user){
             $table_name = "tblCustomers";
             // Require config.php for database connectivity
@@ -16,9 +20,10 @@
             $stmt->bind_param("s", $salesmen);
             $salesmen = $user;
             $stmt->execute();
-    
+            
+            // Get the result
             $result = $stmt->get_result();
-
+            // set the data to display it 
             while($row = $result->fetch_assoc()){
                 $title1 = $row['id']; 
                 $title2 = $row['firstName']; 
@@ -31,7 +36,7 @@
                 $title9 = $row['postalCode'];
                 $title10 = $row['dob'];
                 $title11 = $row['salesmen'];
-    
+                // echo a table row for each customer
                 echo "<tr> 
                 <td>$title1</td>
                 <td>$title2</td>
@@ -49,8 +54,9 @@
             }
         }
     }
-
+    // instatiate the class
     $getUserCusData = new getCustomers;
+    // call the function
     $getUserCusData->getUserCusData($_SESSION['username']);
 
 ?>

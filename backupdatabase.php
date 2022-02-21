@@ -1,3 +1,4 @@
+<!-- Start session and bring in header, redirect if not authenticated -->
 <?php session_start(); include 'header.php';if($_SESSION['loggedin'] != 'true'){header("Location: index.php");} ?>
 
 <?php 
@@ -32,9 +33,11 @@
             }
         }
     }
+    // Instantiate the class
     $backup = new backupData;
+    // Call the function
     $backup->backupdatabase();
 ?>
-
+<!-- Bring in the footer -->
 <?php include 'footer.php'; ?>
 

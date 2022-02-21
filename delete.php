@@ -1,27 +1,28 @@
+<!-- Start session and bring in header, redirect if not authenticated -->
 <?php session_start(); include 'header.php'; if($_SESSION['loggedin'] != 'true'){header("Location: index.php");}?>
 
 <?php 
-
+    // connect to the databae 
     require 'config.php';
     $table_name = "tblCustomers";
     $host=$config['DB_HOST'];
     $db_name=$config['DB_DATABASE'];
     $connection = mysqli_connect($host, $config['DB_USERNAME'], $config['DB_PASSWORD']) or die(mysqli_error($connection));
     $db = mysqli_select_db($connection, $db_name) or die(mysqli_error($connection));
-
+    // Prepare the statment
     $stmt = $connection->prepare("SELECT * FROM $table_name WHERE id = ?");
     $stmt->bind_param("i", $id);
     $id = $_GET['id'];
     $stmt->execute();
-
+    // set the result
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
-
+    // setup the variables
     $firstname = $row['firstName'];
     $lastname = $row['lastName'];
     $email = $row['email'];
 
-
+    // display the info that is about to be deleted
     echo "
     <h1>Delete Customer:</h1>
     <h3>Name: $firstname $lastname</h3>
@@ -40,7 +41,7 @@
 
 ?>
 
-
+<!-- Bring in the footer -->
 
 <?php include 'footer.php'; ?>
 

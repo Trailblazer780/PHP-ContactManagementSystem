@@ -47,7 +47,8 @@
             }
         }
     }
-
+    // instantiate the class
     $loginAuth = new Login;
+    // call the function
     $loginAuth->loginAuth($_POST['password'], $_POST['username']);
 ?>

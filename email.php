@@ -1,3 +1,4 @@
+<!-- Start session and bring in header, redirect if not authenticated -->
 <?php session_start(); include "header.php"; if($_SESSION['loggedin'] != 'true'){header("Location: index.php");}?>
 
 
@@ -27,10 +28,7 @@
     while($row = $result->fetch_assoc()){
         $emailList[] = $row['email'];
     }
-
-
-    // getEmailList($_SESSION['username']);
-
+    // error variables
     $send = "yes";
     $message_err = '';
     $name_err = '';
@@ -56,7 +54,7 @@
             </div>
         </form>
         <a href=\"view_customers.php\"><div class=\"btn btn-dark\">Cancel</div></a></div>";
-
+    // error check the email
     if (isset($_POST['op']) != "ds") {
             // they need to see the form
             echo "$form_block";
@@ -109,6 +107,6 @@
     }
 ?>
 
-
+<!-- Bring in the footer -->
 
 <?php include "footer.php"; ?>

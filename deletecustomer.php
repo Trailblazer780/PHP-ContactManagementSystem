@@ -1,3 +1,4 @@
+<!-- Start session, redirect if not authenticated -->
 <?php session_start(); if($_SESSION['loggedin'] != 'true'){header("Location: index.php");} ?>
 
 <?php
@@ -19,12 +20,13 @@
             $stmt->bind_param("i", $userID);
             $userID = $userID;
             $stmt->execute();
-
+            // redirect when done
             header("Location: view_customers.php");
         }
     }
-
+    // instantiate the class
     $obj = new Delete;
+    // call the function
     $obj->deleteCustomer($_POST['id']);
 
 ?>

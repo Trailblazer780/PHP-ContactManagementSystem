@@ -1,16 +1,18 @@
+<!-- Start session and bring in header, redirect if not authenticated -->
 <?php session_start(); if($_SESSION['loggedin'] != 'true'){header("Location: index.php");}?>
 
 <?php 
     class AddCustomer {
-
+        // function to add a customer to the database
         public function add($salesmen, $firstname, $lastname, $email, $phone, $address, $city, $province, $postalCode, $dob){
+            // connect to the database
             require 'config.php';
             $table_name = "tblCustomers";
             $host=$config['DB_HOST'];
             $db_name=$config['DB_DATABASE'];
             $connection = mysqli_connect($host, $config['DB_USERNAME'], $config['DB_PASSWORD']) or die(mysqli_error($connection));
             $db = mysqli_select_db($connection, $db_name) or die(mysqli_error($connection));
-        
+            // Prepare the statement
             $stmt = $connection->prepare("INSERT INTO $table_name (firstName, lastName, email, phone, address, city, province, postalCode, dob, salesmen) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("ssssssssss", $firstname, $lastname, $email, $phone, $address, $city, $province, $postalCode, $dob, $salesmen);
             $firstname = $firstname;
@@ -29,14 +31,15 @@
             header("Location: view_customers.php");
         }
     }
-
+    // instantiate the class
     $addCustomer = new AddCustomer;
     // if($_POST['firstname']=="" || $_POST['lastname']=="" || $_POST['email']=="" || $_POST['phone']=="" || $_POST['address']=="" || $_POST['city']=="" || $_POST['province']=="" || $_POST['postalCode']=="" || $_POST['dob']==""){
     //     header("Location: add.php");
     // }
     // else{
     // }
+    // call the function
     $addCustomer->add($_GET['username'], $_GET['firstname'], $_GET['lastname'], $_GET['email'], $_GET['phone'], $_GET['address'], $_GET['city'], $_GET['province'], $_GET['postalcode'], $_GET['dob']);
     
-    var_dump($_POST);
+    // var_dump($_POST);
 ?>
