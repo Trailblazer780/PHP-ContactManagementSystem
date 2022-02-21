@@ -18,3 +18,4 @@
     $logout = new Logout;
     $logout->userLogout();
 ?>
+<!-- take out end script tags where no html is -->
